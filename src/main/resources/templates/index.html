@@ -7,35 +7,38 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Список покупок</title>
+
 </head>
 
-<body>
+<body style="color:Purple">
+
 <h2 align="center" style="color:Green"><b>Список покупок</b></h2>
+
 <br>
+
 <div class="container">
     <form method="post" th:action="@{/}" th:object="${item}">
 
         <div class="form-group">
             <label for="name" style="color:Green"><b>Название товара</b></label>
-            <input type="text" id="name" th:field="*{name}" class="form-control" placeholder="введите название">
+            <input type="text" id="name" th:field="*{name}" class="form-control" placeholder="Что купить?">
         </div>
         <div class="form-group">
             <label for="amount" style="color:Green"><b>Количество</b>:</label>
             <input type="number" id="amount" th:field="*{amount}"  placeholder="0"
                    min="1" max="1000">
         </div>
-        <button type="submit" class="btn btn-success">Добавить товар</button>
+        <button type="submit" class="btn btn-success btn-lg">Добавить</button>
 
     </form>
     <br><br>
-
 
     <table class="table table-striped">
         <thead>
         <tr>
 <!--            <th scope="col">Позиция</th>-->
-            <th scope="col">Наименование товара</th>
-            <th scope="col">Количество</th>
+            <th scope="col" style="color:Green">Наименование товара</th>
+            <th scope="col" style="color:Green">Количество</th>
         </tr>
         </thead>
 
@@ -46,7 +49,7 @@
             <td th:text="${item.amount}">3</td>
             <td>
                 <form th:action="@{/{id}(id = ${item.id})}" th:method="delete">
-                    <button type="submit" class="btn btn-danger">Удалить</button>
+                    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
                 </form>
             </td>
         </tr>
@@ -54,6 +57,6 @@
     </table>
 </div>
 
-
 </body>
+
 </html>

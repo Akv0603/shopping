@@ -1,7 +1,7 @@
 package com.akv.shopping.controller;
 
 import com.akv.shopping.entity.ShoppingItem;
-import com.akv.shopping.repository.ShoppingEntityRepository;
+import com.akv.shopping.repository.ShoppingItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ShoppingController {
-    private final ShoppingEntityRepository repository;
+    private final ShoppingItemRepository repository;
 
     @Autowired
-    public ShoppingController(ShoppingEntityRepository repository) {
+    public ShoppingController(ShoppingItemRepository repository) {
         this.repository = repository;
     }
 
